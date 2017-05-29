@@ -6,11 +6,88 @@
 
 	<title>FCC simon</title>
 	<link rel="stylesheet" href="styles/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
 <body>
 
+<div class="svg-container">
+  <div class="front">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" class="simon-svg" viewBox="-10 -8 450 450">
+      <filter id="dropshadow" height="130%">
+  <feGaussianBlur in="SourceAlpha" stdDeviation="6"/> <!-- stdDeviation is how much to blur -->
+  <feOffset dx="0" dy="0" result="offsetblur"/> <!-- how much to offset -->
+  <feMerge> 
+    <feMergeNode/> <!-- this contains the offset blurred image -->
+    <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+  </feMerge>
+</filter>
+      <circle  r="186" cx="186" cy="186" style="filter:url(#dropshadow)"/>
+
+      <path class="button topLeft" id="1"
+        d="M 4,182 A182,182 0 0 1 182,4 V98 A88,88 0 0 0 98,182 z"/>
+      <path class="button topRight" id="2"
+        d="M 190,4 A182,182 0 0 1 368,182 H274 A88,88 0 0 0 190,98 z"/>
+      <path class="button botRight" id="3"
+        d="M 190,368 A182,182 0 0 0 368,190 H274 A88,88 0 0 1 190,274 z"/>
+      <path class="button botLeft" id="4"
+        d="M 182,368 A182,182 0 0 1 4,190 H98 A88,88 0 0 0 182,274 z"/>
+
+      <circle class="simon-middle" r="84" cx="186" cy="186"/>
+      <path class="divider" d="m 186,106 V148"/>
+      <path class="divider" d="m 224,186 H266"/>
+      <path class="divider" d="m 186,224 V266"/>
+      <path class="divider" d="m 106,186 H148"/>
+      <!--inner operation buttons-->
+      <path class="about"
+            d="m184,184 H102 A84,84 0 0 1 184,102 z"/>
+      <text class="about-text op-text" x="125" y="155">about</text>
+      <path class="inner-button strict"
+            d="m188,184 V102 A84,84 0 0 1 270,184 z"/>
+      <text class="strict-text op-text" x="205" y="155">strict</text>
+      <path class="on-off"
+            d="m184,188 V270 A84,84 0 0 1 102,188 z"/>
+      <text class="on-off-text op-text" x="125" y="228">on-off</text>
+      <path class="inner-button start"
+            d="m188,188 H270 A84,84 0 0 1 188,270 z"/>
+      <text class="start-text op-text" X="205" y="228">start</text>
+      
+      <circle class="count" r="34" cx="186" cy="186"/>
+      <text class="count-text" x="186" y="190" text-anchor="middle">count</text>
+    </svg>
+    
+  </div><!--end of front-->
+  <!--     beginning of rear elements -->
+  <div class="back">
+    <svg xmlns="http://www.w3.org/2000/svg" class="simon-svg" viewBox="-10 -8 400 400">
+      <filter id="dropshadow" height="130%">
+  <feGaussianBlur in="SourceAlpha" stdDeviation="6"/> <!-- stdDeviation is how much to blur -->
+  <feOffset dx="0" dy="0" result="offsetblur"/> <!-- how much to offset -->
+  <feMerge> 
+    <feMergeNode/> <!-- this contains the offset blurred image -->
+    <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+  </feMerge>
+</filter>
+      <circle  r="186" cx="186" cy="186" style="filter:url(#dropshadow)"/>
+      <switch>
+        <foreignObject x="0" y="0" height="100%" width="100%">
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <div class="back-container about"> 
+              <p>Created by Cameron Nicklaus<br>2017<br>click anywhere to return</p>
+            </div>
+          </body>
+        </foreignObject>
+        <text text-anchor="middle">
+          <tspan x="50%" y="48%">This app is not</tspan>
+          <tspan x="50%" y="52%">supported by your</tspan>
+          <tspan x="50%" y="56%">current browser</tspan>
+        </text>
+      </switch>
+    </svg>
+   </div><!--end of back-->
+</div>
 
 	<script src="scripts/main.js">
 	</script>
